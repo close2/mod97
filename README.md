@@ -6,6 +6,8 @@ Only positive numbers are allowed.
 
 I have copied this code from [iban.js](https://github.com/arhs/iban.js)
 
+![Build Status](https://travis-ci.org/close2/mod97.svg?branch=master)
+
 ## Usage
 
 A simple usage example:
