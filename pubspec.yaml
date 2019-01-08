@@ -1,11 +1,11 @@
 name: mod97
 description: Calculate the modulo 97.
-version: 0.0.2
+version: 0.1.0
 author: Christian Loitsch <christian@loitsch.com>
 homepage: https://github.com/close2/mod97
 
 environment:
-  sdk: '>=1.0.0 <2.0.0'
+  sdk: '>=1.0.0 <3.0.0'
 
 dev_dependencies:
-  test: '>=0.12.0 <0.13.0'
+  test: '>0.12.0 <2.0.0'
