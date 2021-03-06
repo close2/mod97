@@ -15,8 +15,7 @@ library mod97;
 ///
 /// The [onError] function is only invoked if [source] is a [String]. It is
 /// not invoked if the [source] is, for example, `null`.
-
-int mod97(String source, {int onError(String source)}) {
+int mod97(String source, {int onError(String source)?}) {
   if (source.trim().startsWith('-')) {
     if (onError != null) {
       return onError(source);
@@ -28,8 +27,8 @@ int mod97(String source, {int onError(String source)}) {
 
   while (remainder.length > 2) {
     block = remainder.length < 9 ? remainder : remainder.substring(0, 9);
-    remainder = '${int.parse(block, onError: onError) % 97}${remainder.substring(block.length)}';
+    remainder = '${int.parse(block) % 97}${remainder.substring(block.length)}';
   }
 
-  return int.parse(remainder, onError: onError) % 97;
+  return int.parse(remainder) % 97;
 }
