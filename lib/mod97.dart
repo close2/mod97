@@ -22,13 +22,24 @@ int mod97(String source, {int onError(String source)?}) {
     }
     throw new FormatException('Only positive numbers are allowed.');
   }
+
+  final parseF = onError == null ? int.parse : int.tryParse;
+
   String remainder = source;
   String block;
 
   while (remainder.length > 2) {
     block = remainder.length < 9 ? remainder : remainder.substring(0, 9);
-    remainder = '${int.parse(block) % 97}${remainder.substring(block.length)}';
+    final parsedBlock = parseF(block);
+    if (parsedBlock == null) {
+      return onError!(source);
+    }
+    remainder = '${parsedBlock % 97}${remainder.substring(block.length)}';
   }
 
-  return int.parse(remainder) % 97;
+  final parsedRemainder = parseF(remainder);
+  if (parsedRemainder == null) {
+    return onError!(source);
+  }
+  return parsedRemainder % 97;
 }
