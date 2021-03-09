@@ -6,15 +6,13 @@ library mod97;
 /// is called with the [source] as argument, and its return value is used
 /// instead. If no [onError] is provided, a [FormatException] is thrown.
 ///
-/// The [onError] handler can be chosen to return `null`.  This is preferable
-/// to throwing and then immediately catching the [FormatException].
+/// The [onError] handler can be chosen to return for instance `-1`.
+/// This is preferable to throwing and then immediately catching the
+/// [FormatException].
+///
 /// Example:
-///
-///     var value = int.parse(text, onError: (source) => null);
-///     if (value == null) ... handle the problem
-///
-/// The [onError] function is only invoked if [source] is a [String]. It is
-/// not invoked if the [source] is, for example, `null`.
+///     var value = int.parse(text, onError: (source) => -1);
+///     if (value == -1) ... handle the problem
 int mod97(String source, {int onError(String source)?}) {
   if (source.trim().startsWith('-')) {
     if (onError != null) {
