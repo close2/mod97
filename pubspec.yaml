@@ -1,7 +1,6 @@
 name: mod97
 description: Calculate the modulo 97.
 version: 1.0.0
-author: Christian Loitsch <christian@loitsch.com>
 homepage: https://github.com/close2/mod97
 
 environment:
